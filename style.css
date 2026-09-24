@@ -1,0 +1,1049 @@
+:root {
+    --bg: #060810;
+    --card: #0b1018;
+    --card-light: #10182a;
+    --text: #ffffff;
+    --muted: #aeb6c2;
+    --dim: #687386;
+    --blue: #4a8eff;
+    --purple: #8b5cf6;
+    --border: rgba(255, 255, 255, 0.08);
+    --max: 1200px;
+    --nav-height: 70px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: rgba(139, 92, 246, 0.35);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.05;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    z-index: 100;
+    background: rgba(6, 8, 16, 0.75);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid transparent;
+    transition: 0.3s ease;
+}
+
+.navbar.scrolled {
+    border-bottom-color: var(--border);
+    background: rgba(6, 8, 16, 0.95);
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    transition: 0.2s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-btn {
+    padding: 8px 18px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.menu-btn {
+    display: none;
+    width: 30px;
+    height: 24px;
+    border: 0;
+    background: transparent;
+}
+
+.menu-btn span {
+    display: block;
+    height: 2px;
+    margin: 5px 0;
+    background: var(--text);
+    transition: 0.2s ease;
+}
+
+.navbar.open .menu-btn span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar.open .menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.open .menu-btn span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   3. COMMON SECTION STYLES
+   ========================================================= */
+
+.section {
+    width: min(var(--max), 90%);
+    margin: auto;
+    padding: 110px 0;
+}
+
+.section-head {
+    margin-bottom: 55px;
+}
+
+.tag {
+    margin-bottom: 15px;
+    color: var(--purple);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.section-head h2 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    text-transform: uppercase;
+}
+
+.section + .section {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 130px 5vw 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -150px;
+    top: 80px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.hero-content {
+    width: min(var(--max), 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.hero-text h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    letter-spacing: -0.05em;
+    margin-bottom: 25px;
+}
+
+input{
+    border-radius: 10px;
+}
+textarea{
+    border-radius: 10px;
+}
+.hero-text h1 .name {
+    display: block;
+    background: linear-gradient(135deg, #fff, #c4b5fd, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.greettext{
+    font-size: 30px;
+    letter-spacing: -0.05em;
+    color:rgb(145, 145, 101);
+}
+.hero-desc {
+    max-width: 600px;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.hero-tags,
+.project-tech,
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hero-tags {
+    margin-bottom: 35px;
+}
+
+.hero-tags span,
+.project-tech span,
+.skill-list span {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 0.72rem;
+}
+
+.hero-info {
+    display: flex;
+    margin-bottom: 35px;
+}
+
+.hero-info div {
+    padding: 0 20px;
+    border-left: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.hero-info div:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.hero-info strong,
+.hero-info span {
+    display: block;
+}
+
+.hero-info strong {
+    margin-bottom: 3px;
+    font-size: 0.75rem;
+}
+
+.hero-info span {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border-radius: 5px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: 0.25s ease;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+}
+
+.btn.secondary {
+    border: 1px solid var(--border);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-photo {
+    text-align: center;
+}
+
+.photo-box {
+    width: min(420px, 90%);
+    margin: auto;
+    
+}
+
+.photo-box img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.status {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.status span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #42e88a;
+}
+
+
+/* =========================================================
+   5. ABOUT
+   ========================================================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.about-big {
+    max-width: 500px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.2;
+}
+
+.about-text {
+    color: var(--muted);
+}
+
+.about-text p + p {
+    margin-top: 20px;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.info-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 10px;
+}
+
+.info-card strong,
+.info-card span {
+    display: block;
+}
+
+.info-card strong {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.info-card span {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   6. SKILLS
+   ========================================================= */
+
+ /* ========================================CARDS CONTAINER======================================== */
+
+ .expertise-grid {
+    width: 100%;
+    max-width: 1400px;
+  
+    margin: 0 auto;
+  
+    padding: 30px;
+  
+    display: grid;
+  
+    /* Large screen = maximum 3 cards */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  
+    gap: 18px;
+  }
+  
+  
+  /* ========================================
+   OUTER CARD
+  ======================================== */
+  
+  .expertise-card {
+    position: relative;
+  
+    min-width: 0;
+  
+    min-height: 500px;
+  
+    padding: 24px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    background: #080c16;
+  
+    border: 1px solid rgba(130, 140, 170, 0.20);
+  
+    border-radius: 10px;
+  
+    overflow: hidden;
+  
+    color: #fff;
+  
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+  }
+  
+  
+  /* Hover */
+  
+  .expertise-card:hover {
+    transform: translateY(-4px);
+  
+    border-color: rgba(150, 125, 240, 0.45);
+  
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.30);
+  }
+  
+  
+  /* ========================================
+   CARD HEADER
+  ======================================== */
+  
+  .card-header {
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: space-between;
+  
+    margin-bottom: 8px;
+  }
+  
+  
+  .card-number {
+    font-size: 18px;
+  
+    font-weight: 700;
+  
+    color: #afa1e9;
+  }
+  
+  
+  .card-label {
+    font-family: monospace;
+  
+    font-size: 7px;
+  
+    letter-spacing: 1.2px;
+  
+    color: #666b7d;
+  
+    white-space: nowrap;
+  }
+  
+  
+  /* ========================================
+   CARD TITLE
+  ======================================== */
+  
+  .expertise-card h2 {
+    margin: 0 0 8px;
+  
+    font-size: 17px;
+  
+    line-height: 1.05;
+  
+    font-weight: 800;
+  
+    letter-spacing: -0.4px;
+  }
+  
+  
+  /* ========================================
+   DESCRIPTION
+  ======================================== */
+  
+  .card-description {
+    margin: 0;
+  
+    max-width: 230px;
+  
+    color: #a8adbc;
+  
+    font-size: 11px;
+  
+    line-height: 1.5;
+  }
+  
+  
+  /* ========================================
+   INNER TOOL GRID
+  ======================================== */
+  
+  .tools-grid {
+    margin-top: 50px;
+  
+    display: grid;
+  
+    /*
+       Inside each main card:
+       maximum 3 tools per row
+    */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  
+    gap: 8px;
+  }
+  
+  
+  /* ========================================
+   TOOL CARD
+  ======================================== */
+  
+  .tool {
+    min-width: 0;
+  
+    min-height: 105px;
+  
+    padding: 12px 6px;
+  
+    /* display: flex; */
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    text-align: center;
+  
+    border-radius: 10px;
+  
+    border: 1px solid rgba(120, 130, 160, 0.16);
+  
+    background: rgba(15, 21, 35, 0.75);
+  
+    color: #e5e6ed;
+  
+    font-size: 8px;
+  
+    font-weight: 700;
+  
+    line-height: 1.25;
+  
+    transition: 0.25s ease;
+  }
+  
+  .icon-size{
+    font-size: 30px;
+    line-height: 50px;
+  }
+  .tool:hover {
+    border-color: rgba(150, 125, 240, 0.35);
+  
+    background: rgba(28, 33, 52, 0.9);
+  
+    transform: translateY(-2px);
+  }
+  
+  
+  /* ========================================
+   BOTTOM LINK
+  ======================================== */
+  
+  .card-link {
+    display: block;
+  
+    margin-top: auto;
+  
+    padding-top: 17px;
+  
+    border-top: 1px solid rgba(140, 140, 160, 0.12);
+  
+    color: #b39aed;
+  
+    text-decoration: none;
+  
+    font-family: monospace;
+  
+    font-size: 9px;
+  
+    font-weight: 700;
+  
+    letter-spacing: 0.8px;
+  }
+  
+  
+  .card-link:hover {
+    color: #d2c5ff;
+  }
+  
+  
+  /* ========================================
+   MEDIUM SCREEN
+   2 CARDS PER ROW
+  ======================================== */
+  
+  @media (max-width: 1000px) {
+  
+    .expertise-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+        padding: 24px;
+  
+        gap: 16px;
+    }
+  
+  }
+  
+  
+  /* ========================================
+   SMALL SCREEN
+   1 CARD PER ROW
+  ======================================== */
+  
+  @media (max-width: 650px) {
+  
+    .expertise-grid {
+        grid-template-columns: 1fr;
+  
+        padding: 16px;
+  
+        gap: 16px;
+    }
+  
+  
+    .expertise-card {
+        min-height: 460px;
+  
+        padding: 20px;
+    }
+  
+  }
+  
+  
+  /* ========================================
+   VERY SMALL MOBILE
+  ======================================== */
+  
+  @media (max-width: 400px) {
+  
+    .expertise-grid {
+        padding: 12px;
+    }
+  
+  
+    .expertise-card {
+        padding: 18px;
+    }
+  
+  
+    .tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  
+  }
+
+/* =========================================================
+   7. EXPERIENCE
+   ========================================================= */
+
+.experience-card {
+    padding: 35px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: 0.25s ease;
+    border-radius: 10px;
+}
+
+.experience-card > div:first-child {
+    display: inline-block;
+}
+
+.experience-card h3 {
+    margin-bottom: 5px;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.company {
+    color: var(--purple);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.date {
+    float: right;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.experience-card ul {
+    clear: both;
+    padding-top: 25px;
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+.experience-card li {
+    margin: 7px 0;
+    list-style: disc;
+}
+
+/* project */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+.project-card {
+    min-height: 280px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: 0.25s ease;
+    border-radius: 10px;
+}
+
+.project-no {
+    color: var(--purple);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+}
+
+.project-card h3 {
+    margin: 30px 0 12px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.project-card p {
+    margin-bottom: 25px;
+    color: var(--muted);
+}
+
+/* =========================================================
+   9. CERTIFICATIONS
+   ========================================================= */
+
+.cert-list {
+    display: grid;
+    gap: 12px;
+}
+
+.cert-card {
+    padding: 22px 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: 0.25s ease;
+    border-radius: 10px;
+}
+
+.cert-card strong {
+    font-size: 1rem;
+}
+
+.cert-card span {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   10. CONTACT
+   ========================================================= */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-box {
+    padding: 30px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 10px;
+}
+
+.contact-box > p {
+    margin-bottom: 30px;
+    color: var(--muted);
+}
+
+.contact-box a {
+    display: block;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+}
+
+.contact-box strong,
+.contact-box span {
+    display: block;
+}
+
+.contact-box span {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.contact-form {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border);
+    outline: 0;
+    background: var(--card);
+    color: var(--text);
+}
+
+.contact-form textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+.contact-form .btn {
+    border: 0;
+}
+
+
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
+
+.footer {
+    width: min(var(--max), 90%);
+    margin: auto;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--dim);
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   12. SIMPLE SCROLL ANIMATION
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   13. MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .nav,
+    .nav-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .navbar.open .nav {
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        background: rgba(6, 8, 16, 0.98);
+        border-top: 1px solid var(--border);
+    }
+
+    .hero-content,
+    .about,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .hero-photo {
+        order: -1;
+    }
+
+    .photo-box {
+        width: min(320px, 80%);
+    }
+
+    .about-cards,
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 80px 0;
+    }
+
+    .hero {
+        padding: 110px 5vw 70px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .hero-info {
+        display: block;
+    }
+
+    .hero-info div {
+        padding: 10px 0;
+        border-left: 0;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    }
+
+    .hero-info div:last-child {
+        border-bottom: 0;
+    }
+
+    .cert-card,
+    .footer {
+        flex-direction: column;
+    }
+
+    .experience-card {
+        padding: 25px;
+    }
+
+    .date {
+        float: none;
+        margin-top: 8px;
+    }
+}
