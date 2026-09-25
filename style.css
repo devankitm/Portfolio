@@ -768,6 +768,7 @@ textarea{
     text-transform: uppercase;
 }
 
+
 .company {
     color: var(--purple);
     font-weight: 600;
@@ -955,6 +956,12 @@ textarea{
     transform: translateY(0);
 }
 
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(150, 125, 240, 0.45);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 15px 40px;
+}
+
 
 /* =========================================================
    13. MOBILE
@@ -1001,7 +1008,7 @@ textarea{
     }
 
     .about-cards,
-    .skill-grid {
+    .skill-grid , .project-grid{
         grid-template-columns: 1fr;
     }
 }
@@ -1041,6 +1048,8 @@ textarea{
     .experience-card {
         padding: 25px;
     }
+    
+    
 
     .date {
         float: none;
