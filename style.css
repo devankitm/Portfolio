@@ -187,7 +187,7 @@ h3 {
 
 .tag {
     margin-bottom: 15px;
-    color: var(--purple);
+    color: rgba(255, 255, 255, 0.11);
     font-family: "JetBrains Mono", monospace;
     font-size: 0.75rem;
     letter-spacing: 0.18em;
@@ -199,7 +199,7 @@ h3 {
     text-transform: uppercase;
 }
 
-.section + .section {
+.section+.section {
     border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
@@ -243,12 +243,14 @@ h3 {
     margin-bottom: 25px;
 }
 
-input{
+input {
     border-radius: 10px;
 }
-textarea{
+
+textarea {
     border-radius: 10px;
 }
+
 .hero-text h1 .name {
     display: block;
     background: linear-gradient(135deg, #fff, #c4b5fd, #8b5cf6);
@@ -256,11 +258,13 @@ textarea{
     background-clip: text;
     color: transparent;
 }
-.greettext{
+
+.greettext {
     font-size: 30px;
     letter-spacing: -0.05em;
-    color:rgb(145, 145, 101);
+    color: rgb(145, 145, 101);
 }
+
 .hero-desc {
     max-width: 600px;
     margin-bottom: 28px;
@@ -359,7 +363,7 @@ textarea{
 .photo-box {
     width: min(420px, 90%);
     margin: auto;
-    
+
 }
 
 .photo-box img {
@@ -387,6 +391,33 @@ textarea{
 }
 
 
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.socials a {
+    width: 39px;
+    height: 39px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    background: var(--glass);
+    font-weight: 700;
+    transition: .2s;
+}
+
+.socials a:hover {
+    color: var(--purple);
+    border-color: var(--purple);
+    transform: translateY(-2px);
+}
+
+
 /* =========================================================
    5. ABOUT
    ========================================================= */
@@ -408,7 +439,7 @@ textarea{
     color: var(--muted);
 }
 
-.about-text p + p {
+.about-text p+p {
     margin-top: 20px;
 }
 
@@ -446,305 +477,328 @@ textarea{
    6. SKILLS
    ========================================================= */
 
- /* ========================================CARDS CONTAINER======================================== */
+/* ========================================CARDS CONTAINER======================================== */
 
- .expertise-grid {
+.expertise-grid {
     width: 100%;
     max-width: 1400px;
-  
+
     margin: 0 auto;
-  
+
     padding: 30px;
-  
+
     display: grid;
-  
+
     /* Large screen = maximum 3 cards */
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  
+
     gap: 18px;
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    OUTER CARD
   ======================================== */
-  
-  .expertise-card {
+
+.expertise-card {
     position: relative;
-  
+
     min-width: 0;
-  
+
     min-height: 500px;
-  
+
     padding: 24px;
-  
+
     display: flex;
     flex-direction: column;
-  
+
     background: #080c16;
-  
+
     border: 1px solid rgba(130, 140, 170, 0.20);
-  
+
     border-radius: 10px;
-  
+
     overflow: hidden;
-  
+
     color: #fff;
-  
+
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
         box-shadow 0.3s ease;
-  }
-  
-  
-  /* Hover */
-  
-  .expertise-card:hover {
+}
+
+
+/* Hover */
+
+.expertise-card:hover {
     transform: translateY(-4px);
-  
+
     border-color: rgba(150, 125, 240, 0.45);
-  
+
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.30);
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    CARD HEADER
   ======================================== */
-  
-  .card-header {
+
+.card-header {
     display: flex;
-  
+
     align-items: center;
-  
+
     justify-content: space-between;
-  
+
     margin-bottom: 8px;
-  }
-  
-  
-  .card-number {
+}
+
+
+.card-number {
     font-size: 18px;
-  
+
     font-weight: 700;
-  
+
     color: #afa1e9;
-  }
-  
-  
-  .card-label {
-    font-family: monospace;
-  
-    font-size: 7px;
-  
-    letter-spacing: 1.2px;
-  
-    color: #666b7d;
-  
-    white-space: nowrap;
-  }
-  
-  
-  /* ========================================
+}
+
+.dots {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.dots i {
+    color:var(--muted);
+    font-size: 20px;
+}
+/* .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: block;
+}
+
+.red {
+    background: #ff5f57;
+}
+
+.yellow {
+    background: #febc2e;
+}
+
+.green {
+    background: #28c840;
+} */
+
+/* ========================================
    CARD TITLE
   ======================================== */
-  
-  .expertise-card h2 {
+
+.expertise-card h2 {
     margin: 0 0 8px;
-  
+
     font-size: 17px;
-  
+
     line-height: 1.05;
-  
+
     font-weight: 800;
-  
+
     letter-spacing: -0.4px;
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    DESCRIPTION
   ======================================== */
-  
-  .card-description {
+
+.card-description {
     margin: 0;
-  
+
     max-width: 230px;
-  
+
     color: #a8adbc;
-  
+
     font-size: 11px;
-  
+
     line-height: 1.5;
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    INNER TOOL GRID
   ======================================== */
-  
-  .tools-grid {
+
+.tools-grid {
     margin-top: 50px;
-  
+
     display: grid;
-  
+
     /*
        Inside each main card:
        maximum 3 tools per row
     */
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  
+
     gap: 8px;
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    TOOL CARD
   ======================================== */
-  
-  .tool {
+
+.tool {
     min-width: 0;
-  
+
     min-height: 105px;
-  
+
     padding: 12px 6px;
-  
+
     /* display: flex; */
-  
+
     align-items: center;
-  
+
     justify-content: center;
-  
+
     text-align: center;
-  
+
     border-radius: 10px;
-  
+
     border: 1px solid rgba(120, 130, 160, 0.16);
-  
+
     background: rgba(15, 21, 35, 0.75);
-  
+
     color: #e5e6ed;
-  
+
     font-size: 8px;
-  
+
     font-weight: 700;
-  
+
     line-height: 1.25;
-  
+
     transition: 0.25s ease;
-  }
-  
-  .icon-size{
+}
+
+.icon-size {
     font-size: 30px;
     line-height: 50px;
-  }
-  .tool:hover {
+}
+.icon-size-custom{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-self: center;
+    max-width: 70%;
+    height: auto;
+}
+
+.tool:hover {
     border-color: rgba(150, 125, 240, 0.35);
-  
+
     background: rgba(28, 33, 52, 0.9);
-  
+
     transform: translateY(-2px);
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    BOTTOM LINK
   ======================================== */
-  
-  .card-link {
+
+.card-link {
     display: block;
-  
+
     margin-top: auto;
-  
+
     padding-top: 17px;
-  
+
     border-top: 1px solid rgba(140, 140, 160, 0.12);
-  
+
     color: #b39aed;
-  
+
     text-decoration: none;
-  
+
     font-family: monospace;
-  
+
     font-size: 9px;
-  
+
     font-weight: 700;
-  
+
     letter-spacing: 0.8px;
-  }
-  
-  
-  .card-link:hover {
+}
+
+
+.card-link:hover {
     color: #d2c5ff;
-  }
-  
-  
-  /* ========================================
+}
+
+
+/* ========================================
    MEDIUM SCREEN
    2 CARDS PER ROW
   ======================================== */
-  
-  @media (max-width: 1000px) {
-  
+
+@media (max-width: 1000px) {
+
     .expertise-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-  
+
         padding: 24px;
-  
+
         gap: 16px;
     }
-  
-  }
-  
-  
-  /* ========================================
+
+}
+
+
+/* ========================================
    SMALL SCREEN
    1 CARD PER ROW
   ======================================== */
-  
-  @media (max-width: 650px) {
-  
+
+@media (max-width: 650px) {
+
     .expertise-grid {
         grid-template-columns: 1fr;
-  
+
         padding: 16px;
-  
+
         gap: 16px;
     }
-  
-  
+
+
     .expertise-card {
         min-height: 460px;
-  
+
         padding: 20px;
     }
-  
-  }
-  
-  
-  /* ========================================
+
+}
+
+
+/* ========================================
    VERY SMALL MOBILE
   ======================================== */
-  
-  @media (max-width: 400px) {
-  
+
+@media (max-width: 400px) {
+
     .expertise-grid {
         padding: 12px;
     }
-  
-  
+
+
     .expertise-card {
         padding: 18px;
     }
-  
-  
+
+
     .tools-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-  
-  }
+
+}
 
 /* =========================================================
    7. EXPERIENCE
@@ -758,7 +812,7 @@ textarea{
     border-radius: 10px;
 }
 
-.experience-card > div:first-child {
+.experience-card>div:first-child {
     display: inline-block;
 }
 
@@ -799,6 +853,7 @@ textarea{
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
 }
+
 .project-card {
     min-height: 280px;
     padding: 30px;
@@ -872,7 +927,7 @@ textarea{
     border-radius: 10px;
 }
 
-.contact-box > p {
+.contact-box>p {
     margin-bottom: 30px;
     color: var(--muted);
 }
@@ -968,6 +1023,7 @@ textarea{
    ========================================================= */
 
 @media (max-width: 850px) {
+
     .nav,
     .nav-btn {
         display: none;
@@ -1008,7 +1064,8 @@ textarea{
     }
 
     .about-cards,
-    .skill-grid , .project-grid{
+    .skill-grid,
+    .project-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -1048,8 +1105,8 @@ textarea{
     .experience-card {
         padding: 25px;
     }
-    
-    
+
+
 
     .date {
         float: none;
